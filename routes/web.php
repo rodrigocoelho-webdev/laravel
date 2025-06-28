@@ -7,5 +7,5 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function () {
-	return 'testing endpoint';
+	return 'testing endpoint laravel';
 });
