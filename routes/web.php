@@ -9,3 +9,12 @@ Route::get('/', function () {
 Route::get('/test', function () {
 	return 'testing endpoint laravel';
 });
+
+Route::post('/callback/ailos', function (\Illuminate\Http\Request $request) {
+    session(['ailos callback' => $request->all()]);
+    return true;
+});
+
+Route::get('/callback/ailos', function () {
+    return response()->json(session('ailos callback', []));
+});
