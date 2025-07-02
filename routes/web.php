@@ -11,12 +11,12 @@ Route::get('/test', function () {
 });
 
 Route::post('/callback/ailos', function (\Illuminate\Http\Request $request) {
-    session(['ailos callback' => $request->all()]);
-    return true;
+    session(['ailos_data' => $request->all()]);
+    return response()->json(session('ailos_data', []));
 });
 
 Route::get('/callback/ailos', function () {
-    return response()->json(session('ailos callback', []));
+    return response()->json(session('ailos_data', []));
 });
 
 Route::get('/token', function () {
