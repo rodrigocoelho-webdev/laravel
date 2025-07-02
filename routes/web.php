@@ -18,3 +18,8 @@ Route::post('/callback/ailos', function (\Illuminate\Http\Request $request) {
 Route::get('/callback/ailos', function () {
     return response()->json(session('ailos callback', []));
 });
+
+Route::get('/token', function () {
+    $token = csrf_token();
+    return response()->json(['token' => $token]);
+});
